@@ -7,13 +7,13 @@ Source code diagrams are located [here](https://github.com/kacpura/kacpura.githu
 
 ## Example of Diagrams Generated from code 
 
-### AWS Serveless Architecture example
+### AWS Serverless Architecture example
 
 ![AWS Example](out/src/aws_servless_example/aws_servless_example.png)
 
-### Azure Servless Architecture example
+### Azure Serverless Architecture example
 ![Azure Example](out/src/azure_servless_example/azure_servless_example.png)
 
-### GCP Servless Architecture example
+### GCP Serverless Architecture example
 
 ![GCP Example](out/src/gcp_servless_example/gcp_servless_example.png)
