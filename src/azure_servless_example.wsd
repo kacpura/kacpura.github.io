@@ -1,0 +1,42 @@
+@startuml
+!include <C4/C4_Container>
+!include <C4/C4_Component>
+!include <tupadr3/font-awesome-5/server>
+!include <tupadr3/govicons/desktop>
+!include <azure/AzureCommon>
+
+!include <azure/AzureSimplified>
+!include <azure/Storage/AzureBlobStorage>
+!include <azure/Web/AzureAPIManagement>
+!include <azure/Compute/AzureFunction>
+!include <azure/Databases/AzureCosmosDb>
+
+
+HIDE_STEREOTYPE()
+LAYOUT_LEFT_RIGHT()
+AddElementTag("no color", $fontColor="black", $bgColor="white",$borderColor="white")
+
+
+skinparam linetype ortho
+
+Boundary(aws, "Azure"){
+    
+AzureAPIManagement(api_gateway,"Azure API Gateway \n REST Interface","Rest", $tags="no color")
+AzureBlobStorage(azure_blob,"Azure Blob Storage \n Static Content","Static Content")
+AzureFunction(azure_function,"Azure Function \n Backend Logic"," ")
+AzureCosmosDb(azure_cosmosdb,"Azure CosmosDB \n Message Data Store","")
+}
+
+System(client, "Web Client \n End User",$sprite="desktop", $tags="no color")
+
+'System(api_gateway, "API Gateway",$sprite="APIGateway")
+
+
+
+client <--> api_gateway
+azure_blob -U-> client
+api_gateway --> azure_function
+azure_function --> azure_cosmosdb
+
+
+@enduml

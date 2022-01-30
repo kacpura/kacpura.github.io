@@ -1,0 +1,51 @@
+@startuml
+!define GCPPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-icons-GCP/master/dist
+
+!include GCPPuml/GCPCommon.puml
+!include GCPPuml/GCPSimplified.puml
+!include GCPPuml/AI_and_Machine_Learning/all.puml
+!include GCPPuml/API_Management/all.puml
+!include GCPPuml/Compute/all.puml
+!include GCPPuml/Storage/all.puml
+!include GCPPuml/Databases/all.puml
+
+!include <C4/C4_Container>
+!include <C4/C4_Component>
+!include <tupadr3/font-awesome-5/server>
+!include <tupadr3/govicons/desktop>
+
+
+
+
+
+
+'Apigee_API_Platform(api_gateway,"Apigee API Gateway \n REST Interface","Rest", $tags="no color")
+
+
+HIDE_STEREOTYPE()
+LAYOUT_LEFT_RIGHT()
+AddElementTag("no color", $fontColor="black", $bgColor="white",$borderColor="white")
+
+
+skinparam linetype ortho
+
+Boundary(aws, "GCP"){
+Apigee_API_Platform(api_gateway,"Apigee API Gateway \n REST Interface","Rest")
+Cloud_Storage(cloud_storage,"Cloud Storage \n Static Content","Static Content")
+Cloud_Functions(cloud_function,"Cloud Function \n Backend Logic"," ")
+Cloud_Firestore(cloud_firestore,"Cloud Firestore \n Message Data Store","")
+}
+
+System(client, "Web Client \n End User",$sprite="desktop", $tags="no color")
+
+'System(api_gateway, "API Gateway",$sprite="APIGateway")
+
+
+
+client <--> api_gateway
+cloud_storage -U-> client
+api_gateway --> cloud_function
+cloud_function --> cloud_firestore
+
+
+@enduml

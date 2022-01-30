@@ -1,0 +1,42 @@
+@startuml
+!include <C4/C4_Container>
+!include <C4/C4_Component>
+!include <tupadr3/font-awesome-5/server>
+!include <tupadr3/govicons/desktop>
+!include <awslib/AWSCommon>
+
+!include <awslib/AWSSimplified>
+!include <awslib/Storage/SimpleStorageService>
+!include <awslib/ApplicationIntegration/APIGateway>
+!include <awslib/Compute/Lambda>
+!include <awslib/Database/DynamoDB>
+
+
+HIDE_STEREOTYPE()
+LAYOUT_LEFT_RIGHT()
+AddElementTag("no color", $fontColor="black", $bgColor="white",$borderColor="white")
+
+
+skinparam linetype ortho
+
+Boundary(aws, "AWS"){
+    
+APIGateway(api_gateway,"Amazon API Gateway \n REST Interface","Rest", $tags="no color")
+SimpleStorageService(s3,"Amazon S3 \n Static Content","Static Content")
+Lambda(lambda,"Amazon Lambda \n Backend Logic"," ")
+DynamoDB(dynamodb,"Amazon DynamoDB\n Message Data Store"," ")
+}
+
+System(client, "Web Client \n End User",$sprite="desktop", $tags="no color")
+
+'System(api_gateway, "API Gateway",$sprite="APIGateway")
+
+
+
+client <--> api_gateway
+s3 -U-> client
+api_gateway --> lambda
+lambda --> dynamodb
+
+
+@enduml
