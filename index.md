@@ -1,6 +1,7 @@
-# PlantUML 
+# Diagram as Code using PlantUML
 
-I am very fascinated with Diagram as a code concept and below are some of the serverless architecture examples for different cloud providers using PlantUML.
+As an Enterprise Architect, the diagram as a code concept has been an indispensable tool in my field to streamline work.  Below are some examples for different cloud providers using PlantUML.
+
 
 Source code diagrams are located [here](https://github.com/kacpura/kacpura.github.io/tree/main/src)
 
