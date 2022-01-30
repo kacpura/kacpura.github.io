@@ -2,7 +2,7 @@
 
 I am very fascinated with Diagram as a code concept and below are some of the serverless architecture examples for different cloud providers using PlantUML.
 
-Source code diagrams are located in the/src folder of this repo.
+Source code diagrams are located in the [src](https://github.com/kacpura/kacpura.github.io/tree/main/src) folder of this repo.
 
 
 ## Example of Diagrams Generated from code 
