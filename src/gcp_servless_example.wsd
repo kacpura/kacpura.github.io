@@ -15,13 +15,6 @@
 !include <tupadr3/govicons/desktop>
 
 
-
-
-
-
-'Apigee_API_Platform(api_gateway,"Apigee API Gateway \n REST Interface","Rest", $tags="no color")
-
-
 HIDE_STEREOTYPE()
 LAYOUT_LEFT_RIGHT()
 AddElementTag("no color", $fontColor="black", $bgColor="white",$borderColor="white")
@@ -29,7 +22,7 @@ AddElementTag("no color", $fontColor="black", $bgColor="white",$borderColor="whi
 
 skinparam linetype ortho
 
-Boundary(aws, "GCP"){
+Boundary(gcp, "GCP"){
 Apigee_API_Platform(api_gateway,"Apigee API Gateway \n REST Interface","Rest")
 Cloud_Storage(cloud_storage,"Cloud Storage \n Static Content","Static Content")
 Cloud_Functions(cloud_function,"Cloud Function \n Backend Logic"," ")
@@ -37,9 +30,6 @@ Cloud_Firestore(cloud_firestore,"Cloud Firestore \n Message Data Store","")
 }
 
 System(client, "Web Client \n End User",$sprite="desktop", $tags="no color")
-
-'System(api_gateway, "API Gateway",$sprite="APIGateway")
-
 
 
 client <--> api_gateway

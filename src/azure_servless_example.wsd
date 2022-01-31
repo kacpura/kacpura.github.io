@@ -19,7 +19,7 @@ AddElementTag("no color", $fontColor="black", $bgColor="white",$borderColor="whi
 
 skinparam linetype ortho
 
-Boundary(aws, "Azure"){
+Boundary(azure, "Azure"){
     
 AzureAPIManagement(api_gateway,"Azure API Gateway \n REST Interface","Rest", $tags="no color")
 AzureBlobStorage(azure_blob,"Azure Blob Storage \n Static Content","Static Content")
@@ -28,8 +28,6 @@ AzureCosmosDb(azure_cosmosdb,"Azure CosmosDB \n Message Data Store","")
 }
 
 System(client, "Web Client \n End User",$sprite="desktop", $tags="no color")
-
-'System(api_gateway, "API Gateway",$sprite="APIGateway")
 
 
 
